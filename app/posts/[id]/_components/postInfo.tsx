@@ -4,7 +4,13 @@ export async function PostInfo({id}:{id:string}) {
     //Demora alguns segundos para responder para testar o loading
     await new Promise(resolve => setTimeout(resolve, 3000))
 
-    const response = await fetch(`https://dummyjson.com/posts/${id}`)
+    //A cada 3600 segundos (1 hora) recarrega as informações do fetch
+    const response = await fetch(`https://dummyjson.com/posts/${id}`, {
+        cache: 'force-cache',
+        next:{
+            revalidate:3600
+        }
+    })
     if (!response.ok) {
         return (
             <div>

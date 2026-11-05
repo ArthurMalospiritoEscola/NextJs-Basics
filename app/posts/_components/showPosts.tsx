@@ -5,9 +5,26 @@ interface ResponseProps {
     posts:[IPost]
 }
 
-export default async function ShowPosts() {
+interface ShowPostsProps {
+    userId?:number;
+};
 
-    const response = await fetch('https://dummyjson.com/posts')
+export default async function ShowPosts({userId}:ShowPostsProps) {
+
+    let URL = ""
+    if (!userId) {
+        URL = `https://dummyjson.com/posts`
+    } else {
+        URL = `https://dummyjson.com/posts/${userId}`
+    }
+    const response = await fetch(URL)
+    if (!response.ok) {
+        return (
+            <div>
+                <h1>Erro ao encontrar dados {response.status}</h1>
+            </div>
+        )
+    }
     const data:ResponseProps = await response.json()
 
     return (

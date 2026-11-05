@@ -1,7 +1,5 @@
 import { Suspense } from "react";
-import { PostInfo } from "./_components/post";
-
-
+import { PostInfo } from "./_components/postInfo";
 
 export default async function DetailPost({params}: {params:Promise<{id:string}>}) {
     const {id} = await params;
