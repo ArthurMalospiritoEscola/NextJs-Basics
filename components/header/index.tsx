@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LogoutButton from "./_components/logoutButton";
 
 //Componente React comum para Header
 export default function Header() {
@@ -15,6 +16,15 @@ export default function Header() {
                         </li>
                         <li>
                             <Link href="/dashboards" className="hover:underline">Dashboards</Link>
+                        </li>
+                        <li>
+                            <Link href="/profile" className="hover:underline">Profile</Link>
+                        </li>
+                        <li>
+                            <Link href="/login" className="hover:underline">Login</Link>
+                        </li>
+                        <li>
+                            <LogoutButton/>
                         </li>
                     </ul>
                 </nav>

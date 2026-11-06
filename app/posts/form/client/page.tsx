@@ -16,8 +16,9 @@ export default function PageForm() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent) {
     event.preventDefault();
+    setPosts([]);
 
     const id = Number(userId);
     if (!Number.isInteger(id) || id < 1) {
