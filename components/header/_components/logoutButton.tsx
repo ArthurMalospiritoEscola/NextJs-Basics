@@ -16,7 +16,8 @@ export default function LogoutButton() {
             if (!data.success) {
                 console.log("ERRO AO FAZER LOGOUT: ", data.message)
             }
-            return router.replace("/");
+            router.push("/");
+            router.refresh();
         } catch (error) {
             console.log("Erro ao fazer logout: ", error)
         }

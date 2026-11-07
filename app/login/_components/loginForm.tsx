@@ -47,7 +47,8 @@ export default function LoginForm() {
             setshowMessage(true)
             setError(false)
             setMessage(requestData.message)
-            router.replace("/profile");
+            router.push("/profile");
+            router.refresh();
             
 
         }
